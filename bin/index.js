@@ -1,9 +1,11 @@
+#! /usr/bin/env node
+
 const program = require('commander');
 const pkg = require('../package.json');
 const { fromRepo, fromTmpl } = require('./helper');
 program
   .version(pkg.version, '-v, --version')
-  .usage('Create standard README file conveniently')
+  .usage('readmet [options]')
   .option('-r, --repo', 'Create from a remote repo')
   .option('-i, --init', 'Create from a template');
 

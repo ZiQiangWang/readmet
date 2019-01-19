@@ -1,10 +1,10 @@
 {
   "name": "readmet",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A command tool to create standard README.md conveniently.",
   "main": "index.js",
   "bin": {
-    "readme": "bin/index.js"
+    "readmet": "bin/index.js"
   },
   "repository": {
     "type": "git",
