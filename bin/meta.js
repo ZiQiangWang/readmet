@@ -16,7 +16,16 @@ module.exports = [
   {
     type: 'input',
     name: 'username',
-    message: 'github account name'
+    message: 'github account name',
+    validate: function(input) {
+      const done = this.async();
+      if (input === '') {
+        done('github account name required');
+        return;
+      }
+
+      done(null, true);
+    }
   },
   {
     type: 'checkbox',

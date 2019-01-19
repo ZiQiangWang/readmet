@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "A command tool to create standard README.md conveniently.",
   "main": "index.js",
-  "scripts": {
-    "test": "node bin/index.js"
-  },
   "bin": {
     "readme": "bin/index.js"
   },

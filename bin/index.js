@@ -10,10 +10,14 @@ program
 program.parse(process.argv);
 
 if (program.repo) {
-  const repo = program.args[0];
-  fromRepo(repo);
-}
-
-if (program.init) {
+  if (program.args < 1) {
+    program.help();
+  } else {
+    const repo = program.args[0];
+    fromRepo(repo);
+  }
+} else if (program.init) {
   fromTmpl();
+} else {
+  program.help();
 }
