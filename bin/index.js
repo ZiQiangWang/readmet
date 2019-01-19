@@ -5,7 +5,7 @@ const pkg = require('../package.json');
 const { fromRepo, fromTmpl } = require('./helper');
 program
   .version(pkg.version, '-v, --version')
-  .usage('readmet [options]')
+  .usage('[options]\nA command tool to create standard README.md conveniently.')
   .option('-r, --repo', 'Create from a remote repo')
   .option('-i, --init', 'Create from a template');
 
