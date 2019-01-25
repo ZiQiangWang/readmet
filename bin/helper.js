@@ -31,7 +31,7 @@ function create(metadata = {}, src, dest = '.') {
   metadata.badge_content = badge;
   const result = template(metadata);
 
-  fs.writeFileSync(path.resolve(dest, 'README.md'), result);
+  saveFile(path.resolve(dest, 'README.md'), result);
 }
 
 // 创建badge
@@ -50,6 +50,24 @@ async function fromTmpl() {
   info.badge = array2obj(badge);
   info.items = array2obj(items);
   await create(info, src);
+}
+
+// 保存文件前判断是否存在README.md
+async function saveFile(filePath, content) {
+  if (fs.existsSync(filePath)) {
+    const info = await inquirer.prompt([
+      {
+        name: 'override',
+        message: 'Override existing file README.md?',
+        type: 'confirm'
+      }
+    ]);
+
+    if (!info.override) {
+      filePath = filePath.replace('README', 'README 2');
+    }
+    fs.writeFileSync(filePath, content);
+  }
 }
 
 // 数组转化为对象
