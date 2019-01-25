@@ -1,3 +1,7 @@
+const Configstore = require('configstore');
+const pkg = require('../package.json');
+const conf = new Configstore(pkg.name);
+
 module.exports = [
   {
     type: 'input',
@@ -17,6 +21,7 @@ module.exports = [
     type: 'input',
     name: 'username',
     message: 'github account name',
+    default: conf.get('github_account_name'),
     validate: function(input) {
       const done = this.async();
       if (input === '') {

@@ -1,6 +1,6 @@
 {
   "name": "readmet",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A command tool to create standard README.md conveniently.",
   "main": "index.js",
   "bin": {
@@ -24,6 +24,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^2.19.0",
+    "configstore": "^4.0.0",
     "handlebars": "^4.0.12",
     "inquirer": "^6.2.1",
     "ora": "^3.0.0",

@@ -5,7 +5,9 @@ const ora = require('ora');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
 const handlebars = require('handlebars');
+const Configstore = require('configstore');
 const meta = require('./meta');
+const pkg = require('../package.json');
 
 /**
  * 从网络获取
@@ -43,6 +45,10 @@ function createBadge(metadata) {
 
 async function fromTmpl() {
   const info = await inquirer.prompt(meta);
+
+  // 保存github账户信息，用于自动填写
+  const conf = new Configstore(pkg.name);
+  conf.set('github_account_name', info.username);
 
   const { type, badge, items } = info;
   const src = path.resolve(`template/${type}.md`);
@@ -82,6 +88,7 @@ function array2obj(arr) {
   });
   return result;
 }
+
 module.exports = {
   fromRepo,
   fromTmpl
