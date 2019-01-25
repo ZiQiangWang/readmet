@@ -25,9 +25,12 @@ A command tool to create standard README.md conveniently.
 Options:
   -v, --version  output the version number
   -r, --repo     Create from a remote repo
+  -r, --repo     Create from list of remote repos
   -i, --init     Create from a template
   -h, --help     output usage information
 ```
+
+repo url used with `readmet -r` will be seen in the result of `readmet -l`
 
 ## License
 
