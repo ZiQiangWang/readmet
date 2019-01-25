@@ -8,6 +8,9 @@ const handlebars = require('handlebars');
 const Configstore = require('configstore');
 const meta = require('./meta');
 const pkg = require('../package.json');
+const repos = require('../repo.json');
+
+const conf = new Configstore(pkg.name);
 
 /**
  * 从网络获取
@@ -20,7 +23,8 @@ function fromRepo(url) {
     if (error) {
       console.log(chalk.red(error.message));
     } else {
-      fs.writeFileSync('./README.md', body);
+      saveFile(path.resolve('README.md'), body);
+      updateRepos(url);
     }
   });
 }
@@ -47,7 +51,6 @@ async function fromTmpl() {
   const info = await inquirer.prompt(meta);
 
   // 保存github账户信息，用于自动填写
-  const conf = new Configstore(pkg.name);
   conf.set('github_account_name', info.username);
 
   const { type, badge, items } = info;
@@ -56,6 +59,26 @@ async function fromTmpl() {
   info.badge = array2obj(badge);
   info.items = array2obj(items);
   await create(info, src);
+}
+
+async function chooseRepo() {
+  const list = conf.get('repos') || repos;
+  const answer = await inquirer.prompt([
+    {
+      name: 'repo',
+      message: 'Choose a repo',
+      type: 'list',
+      choices: list
+    }
+  ]);
+  return answer;
+}
+
+// 更新repo的url记录
+function updateRepos(url) {
+  const list = (conf.get('repos') || repos).filter(item => item !== url);
+  list.unshift(url);
+  conf.set('repos', list);
 }
 
 // 保存文件前判断是否存在README.md
@@ -91,5 +114,6 @@ function array2obj(arr) {
 
 module.exports = {
   fromRepo,
-  fromTmpl
+  fromTmpl,
+  chooseRepo
 };

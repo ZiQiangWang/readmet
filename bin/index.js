@@ -2,7 +2,7 @@
 
 const program = require('commander');
 const pkg = require('../package.json');
-const { fromRepo, fromTmpl } = require('./helper');
+const { fromRepo, fromTmpl, chooseRepo } = require('./helper');
 program
   .version(pkg.version, '-v, --version')
   .usage('[options]\nA command tool to create standard README.md conveniently.')
@@ -13,7 +13,9 @@ program.parse(process.argv);
 
 if (program.repo) {
   if (program.args < 1) {
-    program.help();
+    chooseRepo().then(res => {
+      fromRepo(res.repo);
+    });
   } else {
     const repo = program.args[0];
     fromRepo(repo);
