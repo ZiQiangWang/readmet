@@ -32,10 +32,22 @@ module.exports = [
     name: 'badge',
     message: 'badge used',
     choices: [
-      'NPM Version',
-      'Build Status',
-      'Downloads Stats',
-      'Coverage Status'
+      {
+        name: 'NPM Version',
+        value: 'npm_version'
+      },
+      {
+        name: 'Build Status',
+        value: 'build_status'
+      },
+      {
+        name: 'Downloads Status',
+        value: 'downloads_status'
+      },
+      {
+        name: 'Coverage Status',
+        value: 'coverage_status'
+      }
     ]
   },
   {
@@ -53,15 +65,15 @@ module.exports = [
       return params.type === 'custom';
     },
     choices: [
-      'Installation',
-      'Usage',
-      'API',
-      'Development',
-      'ChangeLog',
-      'Contributors',
-      'Contributing',
-      'License',
-      'Acknowledgments'
+      { name: 'Installation', value: 'installation' },
+      { name: 'Usage', value: 'usage' },
+      { name: 'API', value: 'api' },
+      { name: 'Development', value: 'development' },
+      { name: 'ChangeLog', value: 'changelog' },
+      { name: 'Contributors', value: 'contributors' },
+      { name: 'Contributing', value: 'contributing' },
+      { name: 'License', value: 'license' },
+      { name: 'Acknowledgments', value: 'acknowledgments' }
     ]
   },
   {

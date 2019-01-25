@@ -52,11 +52,7 @@ async function fromTmpl() {
   await create(info, src);
 }
 
-// 将Npm Version 转化为 npm_version
-function formatName(str) {
-  return str.toLowerCase().replace(/\s/g, '_');
-}
-
+// 数组转化为对象
 function array2obj(arr) {
   if (!arr) {
     return {};
@@ -64,7 +60,7 @@ function array2obj(arr) {
 
   const result = {};
   arr.forEach(item => {
-    result[formatName(item)] = true;
+    result[item] = true;
   });
   return result;
 }
