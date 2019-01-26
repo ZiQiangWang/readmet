@@ -57,6 +57,19 @@ module.exports = [
   },
   {
     type: 'list',
+    name: 'badge_style',
+    message: 'badge style',
+    default: 'flat',
+    choices: [
+      'plastic',
+      'flat',
+      'flat-square',
+      'for-the-badge',
+      'social'
+    ]
+  },
+  {
+    type: 'list',
     name: 'type',
     message: 'readme type',
     default: 'simple',
