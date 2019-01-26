@@ -12,7 +12,7 @@
 ## Installation
 
 ```sh
-npm install readmet
+npm install -g readmet
 ```
 
 ## Usage
@@ -25,12 +25,20 @@ A command tool to create standard README.md conveniently.
 Options:
   -v, --version  output the version number
   -r, --repo     Create from a remote repo
-  -r, --repo     Create from list of remote repos
+  -l, --repo     Create from list of remote repos
   -i, --init     Create from a template
   -h, --help     output usage information
 ```
 
 repo url used with `readmet -r` will be seen in the result of `readmet -l`
+
+## Acknowledgments
+
+Initial repos are from the community:
+
+- [PurpleBooth/README-Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+- [RichardLitt/standard-readme](https://github.com/RichardLitt/standard-readme)
+- [dbader/readme-template](https://github.com/dbader/readme-template)
 
 ## License
 
