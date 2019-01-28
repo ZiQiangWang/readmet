@@ -6,7 +6,7 @@ const { fromRepo, fromTmpl, chooseRepo } = require('./helper');
 program
   .version(pkg.version, '-v, --version')
   .usage('[options]\nA command tool to create standard README.md conveniently.')
-  .option('-r, --repo', 'Create from a remote repo')
+  .option('-r, --repo <repo>', 'Create from a remote repo')
   .option('-l, --list', 'Create from list of remote repos')
   .option('-i, --init', 'Create from a template');
 

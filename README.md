@@ -23,11 +23,11 @@ Usage: readmet [options]
 A command tool to create standard README.md conveniently.
 
 Options:
-  -v, --version  output the version number
-  -r, --repo     Create from a remote repo
-  -l, --repo     Create from list of remote repos
-  -i, --init     Create from a template
-  -h, --help     output usage information
+  -v, --version        output the version number
+  -r, --repo <repo>    Create from a remote repo
+  -l, --list           Create from list of remote repos
+  -i, --init           Create from a template
+  -h, --help           Output usage information
 ```
 
 repo url used with `readmet -r` will be seen in the result of `readmet -l`
